@@ -3,87 +3,60 @@ import { useState } from "react";
 const Counter = () => {
   const [counters, setCounters] = useState([0]);
 
-  //   const counter = (counter, index) => {
-  //       counters.map((counter, index))
-  //   };
-
   return (
-    <div>
-      <div className="counter">
-        <button
-          onClick={() => {
-            counters.map();
-            const newCounters = [];
-            newCounters.push();
-            setCounters(newCounters);
-          }}
-        >
-          -
-        </button>
+    <div className="counter">
+      {counters.map((counter, index) => {
+        return (
+          <div>
+            {counters[index] < 3 ? <button>ternaire</button> : <span></span>}
+            <button
+              onClick={() => {
+                const newCounters = [...counters];
+                for (let i = 0; i < newCounters.length; i++) {
+                  if (i < 3) {
+                    newCounters.push(0);
+                    setCounters(newCounters);
+                  }
+                }
+              }}
+            >
+              Add a counter
+            </button>
 
-        <div>{counters}</div>
+            <button
+              onClick={() => {
+                const newCounters = [...counters];
+                newCounters[index]--;
+                setCounters(newCounters);
+              }}
+            >
+              -
+            </button>
 
-        <button onClick={() => {}}>+</button>
+            {counter}
 
-        <button onClick={() => {}}>Reset</button>
+            <button
+              onClick={() => {
+                const newCounters = [...counters];
+                newCounters[index]++;
+                setCounters(newCounters);
+              }}
+            >
+              +
+            </button>
 
-        {/* ===============================VERSION 1 */}
-
-        {/*   
-        //   const handleClick = () => {
-//     const newCounters = [...counters];
-//     let a = newCounters.pop();
-//     if (a === 1 || a === 2) {
-//       newCounters.push(a + 1);
-//     }
-//   };
-        const [counters, setCounters] = useState([0]);
-        <button
-          className="add-counter"
-          handleClick={handleClick}
-          onClick={handleClick}
-        >
-          Add counter
-        </button>
-
-        <button
-          onClick={() => {
-            const newCounters = [...counters];
-            let a = newCounters.shift();
-            newCounters.unshift(a - 1);
-            setCounters(newCounters);
-          }}
-          className="button-aside"
-        >
-          -
-        </button>
-
-        <p className="counter">{counters}</p>
-
-        <button
-          onClick={() => {
-            const newCounters = [...counters];
-            let a = newCounters.shift();
-            newCounters.unshift(a + 1);
-            setCounters(newCounters);
-          }}
-          className="button-aside"
-        >
-          +
-        </button>
-
-        <button
-          className="reset"
-          onClick={() => {
-            const newCounters = [...counters];
-            let a = newCounters.shift();
-            newCounters.unshift(a - a);
-            setCounters(newCounters);
-          }}
-        >
-          Reset
-        </button> */}
-      </div>
+            <button
+              onClick={() => {
+                const newCounters = [...counters];
+                newCounters[index] = 0;
+                setCounters(newCounters);
+              }}
+            >
+              Reset
+            </button>
+          </div>
+        );
+      })}
     </div>
   );
 };
