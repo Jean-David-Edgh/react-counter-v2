@@ -3,17 +3,41 @@ import { useState } from "react";
 const Counter = () => {
   const [counters, setCounters] = useState([0]);
 
-  const handleClick = () => {
-    const newCounters = [...counters];
-    let a = newCounters.pop();
-    if (a === 1 || a === 2) {
-      newCounters.push(a + 1);
-    }
-  };
+  //   const counter = (counter, index) => {
+  //       counters.map((counter, index))
+  //   };
 
   return (
     <div>
       <div className="counter">
+        <button
+          onClick={() => {
+            counters.map();
+            const newCounters = [];
+            newCounters.push();
+            setCounters(newCounters);
+          }}
+        >
+          -
+        </button>
+
+        <div>{counters}</div>
+
+        <button onClick={() => {}}>+</button>
+
+        <button onClick={() => {}}>Reset</button>
+
+        {/* ===============================VERSION 1 */}
+
+        {/*   
+        //   const handleClick = () => {
+//     const newCounters = [...counters];
+//     let a = newCounters.pop();
+//     if (a === 1 || a === 2) {
+//       newCounters.push(a + 1);
+//     }
+//   };
+        const [counters, setCounters] = useState([0]);
         <button
           className="add-counter"
           handleClick={handleClick}
@@ -58,7 +82,7 @@ const Counter = () => {
           }}
         >
           Reset
-        </button>
+        </button> */}
       </div>
     </div>
   );
